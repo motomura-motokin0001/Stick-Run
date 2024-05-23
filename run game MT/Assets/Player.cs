@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float speed = 5f;   // 横に移動する速度
     public float jumpP = 300f; // ジャンプ力
 
     Rigidbody2D rbody; // リジッドボディを使うための宣言
@@ -31,10 +30,6 @@ public class Player : MonoBehaviour
 
     }
 
-    private void FixedUpdate()
-    {
-        //リジッドボディに一定の速度を入れる（横移動の速度, リジッドボディのyの速度）
-        rbody.velocity = new Vector2(speed, rbody.velocity.y);
-    }
+
 
 }
