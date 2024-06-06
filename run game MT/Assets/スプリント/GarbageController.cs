@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class GarbageController : MonoBehaviour
@@ -15,10 +16,9 @@ public class GarbageController : MonoBehaviour
         {
             if(GameManager.instance.IsStart())
             {
-                DelayDestroy(10.0f);
+                DelayDestroy(5.0f);
                 float speed = Random.Range(minSpeed, maxSpeed);
                 SetVelocity(-speed);
-
                 waitStart = false;
             }
         }
@@ -39,4 +39,5 @@ public class GarbageController : MonoBehaviour
             rb.velocity = new Vector2(speed, 0f); 
         }
     }
+
 }
