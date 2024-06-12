@@ -1,10 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class StartButton : MonoBehaviour
 {
-    public void OnStartButtonClicked()
+
+    public void OnStartButtonClicked(){
     {
-        SceneManager.LoadScene("Endless");
+        SceneManager.LoadScene("GAME");
     }
+    
+}
 }
