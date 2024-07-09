@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5337360525088239542}
   - component: {fileID: 3175448062245801427}
   m_Layer: 0
-  m_Name: "\u9CE5"
+  m_Name: Bird
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

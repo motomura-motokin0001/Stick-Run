@@ -1,11 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class biru : MonoBehaviour
+public class Cloud : MonoBehaviour
 {
-    public float minSpeed = 2.0f;
-    public float maxSpeed = 5.0f;
+    public float Speed = 2.0f;
+
+    public float DestroyTime = 10.0f;
 
     private bool waitStart = true;
 
@@ -15,19 +15,18 @@ public class biru : MonoBehaviour
         {
             if(GameManager.instance.IsStart())
             {
-                DelayDestroy(10.0f);
-                float speed = Random.Range(minSpeed, maxSpeed);
+                DelayDestroy(DestroyTime);
+                float speed = Speed;
                 SetVelocity(-speed);
-
                 waitStart = false;
             }
         }
     }
 
     // 一定時間後に障害物を破棄する（任意の時間を設定）
-    private void DelayDestroy(float delayTime = 0.0f)
+    private void DelayDestroy(float DestroyTime)
     {
-        Destroy(gameObject, delayTime); 
+        Destroy(gameObject, DestroyTime); 
     }
 
     // 障害物を動かす
@@ -39,4 +38,5 @@ public class biru : MonoBehaviour
             rb.velocity = new Vector2(speed, 0f); 
         }
     }
+
 }

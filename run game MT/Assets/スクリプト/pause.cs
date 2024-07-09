@@ -1,8 +1,8 @@
 using UnityEngine;
 using System.Collections;
- 
+
 public class PauseScript : MonoBehaviour {
- 
+
 	[SerializeField]
 	//　ポーズした時に表示するUIのプレハブ
 	private GameObject pauseUIPrefab;

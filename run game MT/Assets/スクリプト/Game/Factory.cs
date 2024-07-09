@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GarbageFactory : MonoBehaviour
+public class Factory : MonoBehaviour
 {
     public GameObject obstaclePrefab;
     public float interval = 2.0f;
