@@ -1,31 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     private Animator animator;
     public float jumpP = 300f; // ジャンプ力
     public float speed = 5f; // キャラクターの移動速度
-    Rigidbody2D rbody; // リジッドボディを使うための宣言
-
-    private Vector3 afterRectVelocity;
+    private Rigidbody2D rbody; // リジッドボディを使うための宣言
 
     // Start is called before the first frame update
     void Start()
     {
         // リジッドボディ2Dをコンポーネントから取得して変数に入れる
         rbody = GetComponent<Rigidbody2D>();
-
         animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        // ジャンプをするためのコード（もしスペースキーが押されて、上方向に速度がない時に）
-        if(GameManager.instance.IsStart())
+        if (GameManager.instance.IsStart())
         {
             if (Input.GetKeyDown(KeyCode.Space) && rbody.velocity.y == 0)
             {
@@ -60,7 +54,15 @@ public class Player : MonoBehaviour
             }
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // 特定のプレハブに当たった場合にリザルトシーンに移行
+        if (collision.gameObject.CompareTag("Target"))
+        {
+            // スコアを記録し、シーンを切り替える
+            PlayerPrefs.SetInt("FinalScore", ScoreManager.instance.GetScore());
+            SceneManager.LoadScene("Result");
+        }
+    }
 }
-    
-
-

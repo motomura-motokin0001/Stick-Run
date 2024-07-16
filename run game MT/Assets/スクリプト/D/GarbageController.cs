@@ -1,14 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GarbageController : MonoBehaviour
 {
+
     public float minSpeed = 2.0f;
     public float maxSpeed = 5.0f;
 
     private bool waitStart = true;
+    private int score = 0;
+    public TextMeshProUGUI scoreText;
 
     void Update()
     {
@@ -28,6 +30,7 @@ public class GarbageController : MonoBehaviour
     private void DelayDestroy(float delayTime = 0.0f)
     {
         Destroy(gameObject, delayTime); 
+        score += 10;
     }
 
     // 障害物を動かす
@@ -38,6 +41,15 @@ public class GarbageController : MonoBehaviour
         {
             rb.velocity = new Vector2(speed, 0f); 
         }
+    }
+    void GameOver()
+    {
+        PlayerPrefs.SetInt("Score", score);
+        SceneManager.LoadScene("GameOver");
+    }
+    void UpdateUI()
+    {
+        scoreText.text = "Score: " + score;
     }
 
 }
