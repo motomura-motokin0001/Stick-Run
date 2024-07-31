@@ -238,3 +238,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minSpeed: 8
   maxSpeed: 15
+  score: 5
+  scoreText: {fileID: 0}
+  delayTime: 3

@@ -9,8 +9,9 @@ public class GarbageController : MonoBehaviour
     public float maxSpeed = 5.0f;
 
     private bool waitStart = true;
-    private int score = 0;
+    public int score = 0;
     public TextMeshProUGUI scoreText;
+    public float delayTime = 0.0f;
 
     void Update()
     {
@@ -18,7 +19,7 @@ public class GarbageController : MonoBehaviour
         {
             if(GameManager.instance.IsStart())
             {
-                DelayDestroy(5.0f);
+                DelayDestroy(delayTime);
                 float speed = Random.Range(minSpeed, maxSpeed);
                 SetVelocity(-speed);
                 waitStart = false;
@@ -27,7 +28,7 @@ public class GarbageController : MonoBehaviour
     }
 
     // 一定時間後に障害物を破棄する（任意の時間を設定）
-    private void DelayDestroy(float delayTime = 0.0f)
+    private void DelayDestroy(float delayTime)
     {
         Destroy(gameObject, delayTime); 
         score += 10;

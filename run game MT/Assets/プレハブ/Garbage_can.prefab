@@ -174,7 +174,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minSpeed: 5
   maxSpeed: 10
+  score: 10
   scoreText: {fileID: 0}
+  delayTime: 4
 --- !u!114 &9218168204594811096
 MonoBehaviour:
   m_ObjectHideFlags: 0
