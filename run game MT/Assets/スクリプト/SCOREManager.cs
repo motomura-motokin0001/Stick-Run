@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -44,5 +43,11 @@ public class ScoreManager : MonoBehaviour
     public int GetScore()
     {
         return score;
+    }
+
+    public void SaveFinalScore()
+    {
+        PlayerPrefs.SetInt("FinalScore", score);
+        PlayerPrefs.Save();
     }
 }
